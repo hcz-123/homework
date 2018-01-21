@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>大拇指点赞</title>
+	<style type="text/css">
+		.content{
+			width: 500px;
+			height: 500px;
+			margin-top:200px;
+			margin-left:400px;
+			background: linear-gradient(#CCCCFD,#cccccc);
+			position: relative; 
+		}
+		.top{
+			height: 150px;
+			width: 60px;
+			background: #FFCBB9;
+			border-radius: 50px 50px 0 0;
+			text-align: center;
+			margin-top: 30px;
+			margin-left: 250px;
+			transform:rotate(20deg);
+			position: absolute;
+		}
+		.top .top_1{
+			height: 45px;
+			width: 50px;
+			margin-left: 5px;
+			margin-top: 3px;
+			background: #ffffff linear-gradient(#ffffff,#ffcbb3);
+			border-radius: 50px 50px 0 0;
+		}
+		.top .top_2{
+			height: 50px;
+			width: 50px;
+			margin-left: 5px;
+			margin-top: 5px;
+			background: #FFBD9D linear-gradient(#FFBD9D,rgba(255, 255, 255, 0.29));
+			border-radius: 50px 50px 0 0;
+		}
+		.arm_content{
+			height:160px;
+			width: 300px;
+			position: absolute;
+			margin-top: 160px;
+			/*transform:rotate(-7deg);*//*
+			overflow: hidden;*/
+			margin-left: 100px;
+		}
+		.arm{
+			height: 160px;
+			width: 200px;
+			background: #FFCBB9;
+			transform:rotate(7deg);
+			border: 1px solid #cccccc;
+			margin-left: -30px;
+			margin-top: -10px;
+		}
+		.middle{
+			height:232px;
+			width: 216px;
+			margin-left: 210px;
+			margin-top: 130px;
+			position: absolute;
+			border-radius: 20px 0 0 0;
+			transform:rotate(7deg);
+		}
+		.middle_1{
+			background: #FFCBB9;
+			height:58px;
+			border-radius: 40px 30px 30px 0;
+		}
+		.middle_2{
+			background:#FFCBB9;
+			height:58px;
+			border-radius: 0 30px 30px 0;
+		}
+		.middle_3{
+			background: #FFCBB9;
+			height:58px;
+			border-radius: 0 30px 30px 0;
+		}
+		.middle_4{
+			background: #FFCBB9;
+			height:58px;
+			border-radius: 0 30px 30px 30px;
+		}
+
+		.handmaincolor{
+			background: #FFBD9D;
+		}
+	</style>
+</head>
+<body>
+<div class="content" id="thump">	
+	<div class="addzan" style="height:50px;width: 50px;margin-left: 280px;margin-top:0;position: absolute;z-index: 333;font-size: 30px;coler:red;display: none; ">
+		<span>+1</span>
+	</div>
+	<div class="top">
+		<div class="top_1"></div>
+		<div class="top_2"></div>
+	</div>
+	<div class="arm_content">
+		<div class="arm_left"></div>
+		<div class="arm"></div>
+	</div>
+	<div class="middle">
+		<div class="middle_1"></div>
+		<div class="middle_2"></div>
+		<div class="middle_3"></div>
+		<div class="middle_4"></div>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="index.js"></script>
+	<script src="https://cdn.bootcss.com/systemjs/0.20.19/system.js"></script>
+	<!-- <script src="./scripts/index_es.js"></script> -->
+	<script type="text/javascript">
+		SystemJS.config({
+		  baseURL: '/es6test/scripts'
+		});
+		// loads /modules/jquery.js
+		SystemJS.import('index-es.js').then(function(m){
+			$.extend({
+				thump : m.default.Thump
+			})
+			callBack();
+		});
+		function callBack(){
+			let p = new $.thump(0,$("#thump"));
+			p.clickAction();
+		}
+	</script>
+
+</div>
+</body>
+</html>
